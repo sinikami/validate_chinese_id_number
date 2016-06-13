@@ -3579,14 +3579,14 @@
                 },
                 province: function (sIdCard) {//to check the city code
                     var p2 = sIdCard.substr(0, 6);
-                    return ($.type(Config.Pi[p2]) != "undefined"   ) ? true : false;
+					return Config.Pi.hasOwnProperty(p2);
                 }
             }
             ;
 
         var sIdNumber = $(this).is('input')?$(this).val():$(this).text();
         var sIdCard = sIdNumber.replace(/^\s+|\s+$/g, "");
-        if (sIdCard.match(/^\d{15}|\d{17}[0-9xX]{1}$/gi) == null) {//判断是否全为18或15位数字，最后一位可以是大小写字母X
+        if (sIdCard.match(/^\d{15}|\d{17}[0-9xX]{1}$/gi) == null) {//to check id number length that is 18 or 15 and it is possible  to be a "X" at last letter when the length is 18. 
             opt.checklength();
         } else {
             switch (sIdCard.length) {
