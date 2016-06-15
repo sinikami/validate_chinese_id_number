@@ -3587,7 +3587,7 @@
         var sIdNumber = $(this).is('input')?$(this).val():$(this).text();
         var sIdCard = sIdNumber.replace(/^\s+|\s+$/g, "");
 		if($(this).attr('ignore')==1){
-					return true;
+					opt.success();
 		}else{
 				if (sIdCard.match(/^\d{15}|\d{17}[0-9xX]{1}$/gi) == null) {//to check id number length that is 18 or 15 and it is possible  to be a "X" at last letter when the length is 18. 
 					opt.checklength();
